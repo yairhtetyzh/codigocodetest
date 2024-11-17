@@ -33,7 +33,7 @@ public class PackageSpecification {
 
 				final Collection<Predicate> predicates = new ArrayList<>();
 
-				if (!Objects.isNull(packageSearchDTO.getCountryId())) {
+				if (!Objects.isNull(packageSearchDTO.getCountryId()) && packageSearchDTO.getCountryId() > 0) {
 					Join<PackagePlan, Country> countryJoin = root.join("country");
 					final Predicate countryIdPredicate = criteriaBuilder.equal(countryJoin.get("id"),
 							packageSearchDTO.getCountryId());

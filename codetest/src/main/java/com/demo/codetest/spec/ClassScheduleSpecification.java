@@ -35,7 +35,7 @@ public class ClassScheduleSpecification {
 
 				final Collection<Predicate> predicates = new ArrayList<>();
 
-				if (!Objects.isNull(classScheduleSearchDTO.getCountryId())) {
+				if (!Objects.isNull(classScheduleSearchDTO.getCountryId()) && classScheduleSearchDTO.getCountryId()>0) {
 					Join<ClassSchedule, Country> countryJoin = root.join("country");
 					final Predicate countryIdPredicate = criteriaBuilder.equal(countryJoin.get("id"),
 							classScheduleSearchDTO.getCountryId());
